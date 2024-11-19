@@ -26,9 +26,41 @@ app.get("/", (req, res) => {
   res.send("root, questa è la risposta del server");
 });
 
+//app.get("/posts/:id", (req, res) => {
+// gestione parametro dinamico
+//  console.log(req.params.id);
+//});
+
+// rotte per operazioni crud
+
+// index
+app.get("/posts/", (req, res) => {
+  res.send(" risposta del server, elenco i posts");
+});
+
+// show
 app.get("/posts/:id", (req, res) => {
-  // gestione parametro dinamico
-  console.log(req.params.id);
+  res.send(" risposta del server, mostro post");
+});
+
+// store
+app.post("/posts/", (req, res) => {
+  res.send(" risposta del server, creo post");
+});
+
+// update
+app.put("/posts/:id", (req, res) => {
+  res.send(" risposta del server, aggiorno post");
+});
+
+// modify
+app.patch("/posts/:id", (req, res) => {
+  res.send(" risposta del server, modifico post");
+});
+
+// destroy
+app.delete("/posts/:id", (req, res) => {
+  res.send(" risposta del server, elimino post");
 });
 
 app.listen(port, () => {
