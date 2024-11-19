@@ -21,8 +21,13 @@ const port = 3000; // definisco la porta per accedere al server
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.console.log("questa è la root");
+  console.log("questa è la root");
   res.send("root, questa è la risposta del server");
+});
+
+app.get("/posts/:id", (req, res) => {
+  // gestione parametro dinamico
+  console.log(req.params.id);
 });
 
 app.listen(port, () => {
