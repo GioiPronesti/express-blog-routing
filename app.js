@@ -16,7 +16,8 @@ una volta che tutte le rotte funzionano (assicuratevi di averle tutte testate co
 
 const express = require("express"); // richiamo express
 const app = express(); // definisco l'applicativo dove vive express
-const posts = require("./data/posts");
+const postsRouter = require("./routers/routepost.js");
+const posts = require("./data/posts.js");
 const port = 3000; // definisco la porta per accedere al server
 
 app.use(express.static("public"));
@@ -31,37 +32,8 @@ app.get("/", (req, res) => {
 //  console.log(req.params.id);
 //});
 
-// rotte per operazioni crud
-
-// index
-app.get("/posts/", (req, res) => {
-  res.send(" risposta del server, elenco i posts");
-});
-
-// show
-app.get("/posts/:id", (req, res) => {
-  res.send(" risposta del server, mostro post");
-});
-
-// store
-app.post("/posts/", (req, res) => {
-  res.send(" risposta del server, creo post");
-});
-
-// update
-app.put("/posts/:id", (req, res) => {
-  res.send(" risposta del server, aggiorno post");
-});
-
-// modify
-app.patch("/posts/:id", (req, res) => {
-  res.send(" risposta del server, modifico post");
-});
-
-// destroy
-app.delete("/posts/:id", (req, res) => {
-  res.send(" risposta del server, elimino post");
-});
+// rotta posts
+app.use("/posts", postsRouter);
 
 app.listen(port, () => {
   console.log(`server in ascolto sulla porta ${port}`);
