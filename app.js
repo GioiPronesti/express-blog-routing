@@ -16,6 +16,7 @@ una volta che tutte le rotte funzionano (assicuratevi di averle tutte testate co
 
 const express = require("express"); // richiamo express
 const app = express(); // definisco l'applicativo dove vive express
+const posts = require("./posts");
 const port = 3000; // definisco la porta per accedere al server
 
 app.use(express.static("public"));
