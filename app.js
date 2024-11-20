@@ -16,8 +16,7 @@ una volta che tutte le rotte funzionano (assicuratevi di averle tutte testate co
 
 const express = require("express"); // richiamo express
 const app = express(); // definisco l'applicativo dove vive express
-const postsRouter = require("./routers/routepost.js");
-const posts = require("./data/posts.js");
+const postsRouter = require("./routers/routeposts.js");
 const port = 3000; // definisco la porta per accedere al server
 
 app.use(express.static("public"));
@@ -31,6 +30,8 @@ app.get("/", (req, res) => {
 // gestione parametro dinamico
 //  console.log(req.params.id);
 //});
+
+//http://localhost:3000/imgs/posts/ciambellone.jpeg
 
 // rotta posts
 app.use("/posts", postsRouter);
